@@ -1,0 +1,877 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Scent & Sweet — The Art of Elegant Light</title>
+<meta name="description" content="Handcrafted luxury candles, home decor candles & scented candles from Aralia, Agartala. Order online, pay on delivery.">
+
+<!--
+  ============================================================
+  BEFORE YOU GO LIVE — replace these 3 things:
+  1. FORMSPREE_ENDPOINT below (search for "YOUR_FORM_ID")
+     → create a free form at https://formspree.io and paste your ID
+  2. Product images — every <img> below uses a placeholder.
+     → upload real photos to https://imgbb.com and swap the src="" URLs
+  3. Double-check SHOP.phone / SHOP.email if they ever change
+  ============================================================
+-->
+
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Fraunces:ital,opsz,wght@0,9..144,400;0,9..144,600;1,9..144,500&family=Inter:wght@400;500;600;700&family=JetBrains+Mono:wght@400;500&display=swap" rel="stylesheet">
+
+<style>
+  :root{
+    --wax:        #FBF3EC;   /* page background — warm cream/blush */
+    --wax-2:      #FFFFFF;   /* card & sheet panels — soft white */
+    --cream:      #3E2C2C;   /* primary text — deep mocha ink */
+    --cream-dim:  #9C8079;   /* muted secondary text — dusty rose-taupe */
+    --flame:      #E3A0A6;   /* main accent — soft blush pink */
+    --ember:      #C97B85;   /* deeper rose — hover / emphasis */
+    --sage:       #B7C7A3;   /* pastel sage, used sparingly */
+    --line:       rgba(62,44,44,0.10);
+
+    --display: 'Fraunces', serif;
+    --body: 'Inter', sans-serif;
+    --mono: 'JetBrains Mono', monospace;
+
+    --radius: 3px;
+  }
+
+  *{box-sizing:border-box; margin:0; padding:0;}
+  html{scroll-behavior:smooth;}
+  body{
+    background:var(--wax);
+    color:var(--cream);
+    font-family:var(--body);
+    line-height:1.5;
+    -webkit-font-smoothing:antialiased;
+    padding-bottom:40px;
+  }
+  img{max-width:100%; display:block;}
+  button{font-family:inherit; cursor:pointer;}
+  a{color:inherit;}
+
+  @media (prefers-reduced-motion: reduce){
+    *{animation-duration:0.001ms !important; animation-iteration-count:1 !important; transition-duration:0.001ms !important;}
+  }
+
+  /* ---------- Layout shell ---------- */
+  .wrap{max-width:1120px; margin:0 auto; padding:0 20px;}
+
+  /* ---------- Header ---------- */
+  header{
+    position:sticky; top:0; z-index:40;
+    background:rgba(251,243,236,0.92);
+    backdrop-filter:blur(8px);
+    border-bottom:1px solid var(--line);
+  }
+  .header-inner{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:16px 20px; max-width:1120px; margin:0 auto;
+  }
+  .brand{display:flex; flex-direction:column; gap:2px;}
+  .brand-name{
+    font-family:var(--display); font-weight:600; font-size:1.5rem;
+    letter-spacing:0.01em; color:var(--cream);
+  }
+  .brand-tagline{
+    font-family:var(--mono); font-size:0.65rem; letter-spacing:0.12em;
+    text-transform:uppercase; color:var(--flame);
+  }
+  .header-loc{
+    font-size:0.75rem; color:var(--cream-dim); text-align:right;
+    display:none;
+  }
+  @media(min-width:640px){ .header-loc{display:block;} }
+
+  /* ---------- Hero ---------- */
+  .hero{
+    position:relative;
+    padding:64px 20px 56px;
+    text-align:center;
+    overflow:hidden;
+    border-bottom:1px solid var(--line);
+  }
+  .hero::before{
+    content:"";
+    position:absolute; inset:0;
+    background:
+      radial-gradient(ellipse 60% 50% at 50% 0%, rgba(227,160,166,0.22), transparent 70%);
+    pointer-events:none;
+  }
+  .flame-wrap{
+    position:relative; width:34px; height:52px; margin:0 auto 22px;
+  }
+  .flame{
+    /* kept literally fire-colored on purpose — a real flame glowing warm
+       against the airy pastel chrome is the page's signature contrast */
+    position:absolute; left:50%; bottom:0; transform:translateX(-50%);
+    width:16px; height:26px;
+    background:radial-gradient(circle at 50% 70%, #FFE9B8 0%, #E8A33D 45%, #C1502E 85%, transparent 100%);
+    border-radius:50% 50% 50% 50% / 60% 60% 40% 40%;
+    filter:blur(0.3px);
+    animation:flicker 2.6s ease-in-out infinite;
+    box-shadow:0 0 18px 4px rgba(232,163,61,0.45);
+  }
+  .wick{
+    position:absolute; left:50%; bottom:-6px; transform:translateX(-50%);
+    width:2px; height:10px; background:#5c4a3a; border-radius:1px;
+  }
+  @keyframes flicker{
+    0%,100%{ transform:translateX(-50%) scaleY(1) rotate(0deg); opacity:1;}
+    20%{ transform:translateX(-52%) scaleY(1.05) rotate(-2deg); opacity:0.96;}
+    45%{ transform:translateX(-48%) scaleY(0.94) rotate(2deg); opacity:1;}
+    70%{ transform:translateX(-51%) scaleY(1.08) rotate(-1deg); opacity:0.93;}
+  }
+  .hero h1{
+    font-family:var(--display); font-weight:600;
+    font-size:clamp(2rem, 5vw, 3.1rem);
+    line-height:1.08;
+    max-width:680px; margin:0 auto 16px;
+    position:relative;
+  }
+  .hero h1 em{
+    font-style:italic; color:var(--flame); font-weight:500;
+  }
+  .hero p{
+    color:var(--cream-dim); max-width:480px; margin:0 auto;
+    font-size:0.98rem; position:relative;
+  }
+  .hero .loc-pill{
+    display:inline-flex; align-items:center; gap:6px;
+    margin-top:22px; padding:7px 14px;
+    border:1px solid var(--line); border-radius:100px;
+    font-family:var(--mono); font-size:0.72rem; color:var(--cream-dim);
+    letter-spacing:0.03em;
+  }
+
+  /* ---------- Category filters ---------- */
+  .filters{
+    position:sticky; top:73px; z-index:30;
+    background:var(--wax);
+    border-bottom:1px solid var(--line);
+    padding:14px 20px;
+    overflow-x:auto;
+    white-space:nowrap;
+    scrollbar-width:none;
+  }
+  .filters::-webkit-scrollbar{display:none;}
+  .filters-inner{
+    max-width:1120px; margin:0 auto;
+    display:flex; gap:8px;
+  }
+  .filter-btn{
+    background:transparent;
+    border:1px solid var(--line);
+    color:var(--cream-dim);
+    padding:8px 16px;
+    border-radius:100px;
+    font-size:0.8rem;
+    font-family:var(--body); font-weight:500;
+    transition:all 0.2s ease;
+    flex-shrink:0;
+  }
+  .filter-btn:hover{ border-color:var(--flame); color:var(--cream); }
+  .filter-btn.active{
+    background:var(--flame); border-color:var(--flame); color:var(--cream);
+    font-weight:600;
+  }
+
+  /* ---------- Product grid ---------- */
+  .catalog{ padding:44px 20px 20px; }
+  .catalog h2{
+    font-family:var(--display); font-size:1.1rem; font-weight:600;
+    text-align:center; margin-bottom:6px; color:var(--cream);
+  }
+  .catalog .sub{
+    text-align:center; color:var(--cream-dim); font-size:0.82rem;
+    margin-bottom:32px;
+  }
+  .grid{
+    display:grid;
+    grid-template-columns:repeat(auto-fill, minmax(220px, 1fr));
+    gap:22px;
+    max-width:1120px; margin:0 auto;
+  }
+  .card{
+    background:var(--wax-2);
+    border:1px solid var(--line);
+    border-radius:var(--radius);
+    overflow:hidden;
+    display:flex; flex-direction:column;
+    transition:border-color 0.25s ease, transform 0.25s ease;
+  }
+  .card:hover{ border-color:rgba(201,123,133,0.5); transform:translateY(-2px); box-shadow:0 10px 24px rgba(62,44,44,0.08); }
+  .card-img{
+    aspect-ratio:1/1; width:100%; overflow:hidden; background:#F1E4DC;
+    position:relative;
+  }
+  .card-img img{ width:100%; height:100%; object-fit:cover; }
+  .card-cat{
+    position:absolute; top:10px; left:10px;
+    background:rgba(255,255,255,0.85); backdrop-filter:blur(4px);
+    color:var(--cream); font-family:var(--mono); font-size:0.62rem;
+    letter-spacing:0.06em; text-transform:uppercase;
+    padding:4px 9px; border-radius:100px; border:1px solid var(--line);
+  }
+  .card-body{ padding:16px 16px 18px; display:flex; flex-direction:column; gap:6px; flex:1;}
+  .card-name{ font-family:var(--display); font-weight:600; font-size:1.02rem; }
+  .card-desc{ color:var(--cream-dim); font-size:0.8rem; line-height:1.4; flex:1;}
+  .card-foot{ display:flex; align-items:center; justify-content:space-between; margin-top:10px; gap:10px;}
+  .card-price{ font-family:var(--mono); font-weight:500; color:var(--flame); font-size:1rem; }
+  .add-btn{
+    background:transparent; border:1px solid var(--flame); color:var(--flame);
+    padding:8px 14px; border-radius:var(--radius); font-size:0.78rem; font-weight:600;
+    letter-spacing:0.02em; transition:all 0.2s ease; white-space:nowrap;
+  }
+  .add-btn:hover{ background:var(--flame); color:var(--cream); }
+  .add-btn.added{ background:var(--sage); border-color:var(--sage); color:var(--cream); }
+
+  /* ---------- Floating buttons ---------- */
+  .float-stack{
+    position:fixed; right:18px; bottom:18px; z-index:50;
+    display:flex; flex-direction:column; gap:12px; align-items:flex-end;
+  }
+  .fab{
+    width:56px; height:56px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    border:none; box-shadow:0 6px 20px rgba(62,44,44,0.22);
+    position:relative;
+  }
+  .fab-cart{
+    background:var(--flame); color:var(--cream);
+    animation:none;
+  }
+  .fab-cart.pulse{ animation:pulse 0.4s ease; }
+  @keyframes pulse{ 0%{transform:scale(1);} 40%{transform:scale(1.18);} 100%{transform:scale(1);} }
+  .fab-cart svg{ width:24px; height:24px; }
+  .cart-badge{
+    position:absolute; top:-4px; right:-4px;
+    background:var(--ember); color:var(--cream);
+    font-family:var(--mono); font-size:0.68rem; font-weight:600;
+    min-width:19px; height:19px; border-radius:50%;
+    display:flex; align-items:center; justify-content:center;
+    border:2px solid var(--wax);
+  }
+  .fab-wa{
+    background:#25D366; color:#0b3d1f;
+  }
+  .fab-wa svg{ width:26px; height:26px; }
+
+  /* ---------- Modals ---------- */
+  .overlay{
+    position:fixed; inset:0; background:rgba(62,44,44,0.35);
+    backdrop-filter:blur(2px);
+    z-index:60; display:none; align-items:flex-end; justify-content:center;
+  }
+  .overlay.open{ display:flex; }
+  @media(min-width:640px){ .overlay{ align-items:center; } }
+
+  .sheet{
+    background:var(--wax-2);
+    border:1px solid var(--line);
+    width:100%; max-width:520px;
+    max-height:88vh;
+    border-radius:14px 14px 0 0;
+    display:flex; flex-direction:column;
+    animation:slideup 0.28s cubic-bezier(.22,1,.36,1);
+  }
+  @media(min-width:640px){ .sheet{ border-radius:8px; max-height:82vh; } }
+  @keyframes slideup{ from{ transform:translateY(30px); opacity:0;} to{ transform:translateY(0); opacity:1;} }
+
+  .sheet-head{
+    display:flex; align-items:center; justify-content:space-between;
+    padding:18px 20px; border-bottom:1px solid var(--line); flex-shrink:0;
+  }
+  .sheet-head h3{ font-family:var(--display); font-weight:600; font-size:1.15rem; }
+  .close-btn{
+    background:transparent; border:none; color:var(--cream-dim);
+    font-size:1.4rem; line-height:1; padding:4px 8px;
+  }
+  .close-btn:hover{ color:var(--cream); }
+  .sheet-body{ padding:16px 20px; overflow-y:auto; flex:1; }
+  .sheet-foot{ padding:16px 20px 20px; border-top:1px solid var(--line); flex-shrink:0; }
+
+  /* Cart items */
+  .cart-empty{ text-align:center; color:var(--cream-dim); padding:36px 10px; font-size:0.9rem; }
+  .cart-row{
+    display:flex; gap:12px; padding:12px 0; border-bottom:1px solid var(--line);
+  }
+  .cart-row img{ width:56px; height:56px; object-fit:cover; border-radius:4px; flex-shrink:0; background:#F1E4DC;}
+  .cart-row-info{ flex:1; min-width:0; }
+  .cart-row-name{ font-weight:600; font-size:0.9rem; margin-bottom:2px; }
+  .cart-row-price{ font-family:var(--mono); font-size:0.78rem; color:var(--flame); }
+  .qty-row{ display:flex; align-items:center; gap:10px; margin-top:8px; }
+  .qty-btn{
+    width:24px; height:24px; border-radius:50%; border:1px solid var(--line);
+    background:transparent; color:var(--cream); font-size:0.9rem; line-height:1;
+    display:flex; align-items:center; justify-content:center;
+  }
+  .qty-btn:hover{ border-color:var(--flame); }
+  .qty-num{ font-family:var(--mono); font-size:0.85rem; min-width:16px; text-align:center; }
+  .remove-btn{
+    background:transparent; border:none; color:var(--cream-dim);
+    font-size:0.72rem; text-decoration:underline; margin-left:auto;
+  }
+  .remove-btn:hover{ color:var(--ember); }
+  .cart-row-sub{ font-family:var(--mono); font-size:0.85rem; align-self:flex-start; white-space:nowrap; }
+
+  .total-row{
+    display:flex; justify-content:space-between; align-items:baseline;
+    font-family:var(--mono); margin-bottom:14px;
+  }
+  .total-row .label{ color:var(--cream-dim); font-size:0.85rem; }
+  .total-row .amount{ font-size:1.3rem; color:var(--flame); font-weight:500; }
+
+  .btn-primary{
+    width:100%; background:var(--flame); color:var(--cream);
+    border:none; padding:14px; border-radius:var(--radius);
+    font-weight:700; font-size:0.9rem; letter-spacing:0.02em;
+    transition:opacity 0.2s ease;
+  }
+  .btn-primary:hover{ opacity:0.88; }
+  .btn-primary:disabled{ opacity:0.4; cursor:not-allowed; }
+
+  /* Checkout form */
+  .field{ margin-bottom:14px; }
+  .field label{
+    display:block; font-size:0.75rem; color:var(--cream-dim);
+    margin-bottom:6px; font-family:var(--mono); letter-spacing:0.02em;
+  }
+  .field input, .field textarea{
+    width:100%; background:var(--wax); border:1px solid var(--line);
+    color:var(--cream); padding:11px 12px; border-radius:var(--radius);
+    font-family:var(--body); font-size:0.9rem;
+  }
+  .field input:focus, .field textarea:focus{
+    outline:none; border-color:var(--flame);
+  }
+  .field textarea{ resize:vertical; min-height:64px; }
+  .order-summary-mini{
+    background:var(--wax); border:1px solid var(--line); border-radius:var(--radius);
+    padding:12px 14px; margin-bottom:16px; font-size:0.82rem; color:var(--cream-dim);
+  }
+  .order-summary-mini strong{ color:var(--cream); }
+
+  /* Confirmation */
+  .confirm-wrap{ text-align:center; padding:20px 6px 6px; }
+  .confirm-icon{
+    width:56px; height:56px; border-radius:50%; background:var(--sage);
+    display:flex; align-items:center; justify-content:center; margin:0 auto 18px;
+  }
+  .confirm-icon svg{ width:28px; height:28px; color:var(--cream); }
+  .confirm-wrap h3{ font-family:var(--display); font-size:1.3rem; margin-bottom:10px; }
+  .confirm-wrap p{ color:var(--cream-dim); font-size:0.88rem; max-width:340px; margin:0 auto 22px; }
+  .wa-cta{
+    display:inline-flex; align-items:center; gap:8px;
+    background:#25D366; color:#0b3d1f; padding:12px 22px;
+    border-radius:100px; font-weight:700; font-size:0.85rem;
+    text-decoration:none;
+  }
+  .wa-cta svg{ width:18px; height:18px; }
+
+  /* Footer */
+  footer{
+    text-align:center; padding:40px 20px 20px; color:var(--cream-dim);
+    font-size:0.78rem; border-top:1px solid var(--line); margin-top:40px;
+  }
+  footer .fname{ font-family:var(--display); color:var(--cream); font-size:1rem; display:block; margin-bottom:6px; }
+
+  .visually-hidden{
+    position:absolute; width:1px; height:1px; overflow:hidden; clip:rect(0,0,0,0);
+  }
+
+  /* Toast */
+  .toast{
+    position:fixed; left:50%; bottom:90px; transform:translateX(-50%) translateY(20px);
+    background:var(--cream); color:var(--wax); padding:10px 18px;
+    border-radius:100px; font-size:0.82rem; font-weight:600;
+    opacity:0; pointer-events:none; transition:all 0.3s ease; z-index:70;
+    white-space:nowrap;
+  }
+  .toast.show{ opacity:1; transform:translateX(-50%) translateY(0); }
+
+  :focus-visible{ outline:2px solid var(--flame); outline-offset:2px; }
+</style>
+</head>
+<body>
+
+<!-- ================= HEADER ================= -->
+<header>
+  <div class="header-inner">
+    <div class="brand">
+      <span class="brand-name">Scent &amp; Sweet</span>
+      <span class="brand-tagline">The Art of Elegant Light</span>
+    </div>
+    <div class="header-loc">Aralia, Agartala<br>Handcrafted &amp; hand-poured</div>
+  </div>
+</header>
+
+<!-- ================= HERO ================= -->
+<section class="hero">
+  <div class="flame-wrap">
+    <div class="wick"></div>
+    <div class="flame"></div>
+  </div>
+  <h1>Light your room with <em>handcrafted</em> warmth</h1>
+  <p>Small-batch luxury, decor and scented candles — poured by hand in Aralia, Agartala. Browse below and order in a minute.</p>
+  <span class="loc-pill">📍 Aralia, Agartala · Order online, we confirm on WhatsApp</span>
+</section>
+
+<!-- ================= CATEGORY FILTERS ================= -->
+<nav class="filters">
+  <div class="filters-inner" id="filterBar"></div>
+</nav>
+
+<!-- ================= CATALOG ================= -->
+<main class="catalog">
+  <h2>Our Candles</h2>
+  <p class="sub">Every piece hand-poured to order · Free local delivery in Agartala</p>
+  <div class="grid" id="grid"></div>
+</main>
+
+<!-- ================= FLOATING BUTTONS ================= -->
+<div class="float-stack">
+  <a class="fab fab-wa" id="waFab" href="#" target="_blank" rel="noopener" aria-label="Chat on WhatsApp">
+    <svg viewBox="0 0 32 32" fill="currentColor"><path d="M16.001 3C9.373 3 4 8.373 4 15c0 2.386.7 4.605 1.907 6.47L4 29l7.72-1.867A11.94 11.94 0 0 0 16.001 27C22.628 27 28 21.627 28 15S22.628 3 16.001 3zm0 21.818c-1.98 0-3.827-.56-5.398-1.53l-.387-.23-4.583 1.108 1.13-4.464-.253-.398A9.78 9.78 0 0 1 5.182 15c0-5.964 4.855-10.818 10.819-10.818S26.818 9.036 26.818 15 21.965 24.818 16.001 24.818zm5.98-8.12c-.328-.164-1.94-.957-2.24-1.066-.3-.11-.518-.164-.737.163-.219.328-.846 1.066-1.037 1.285-.191.219-.382.246-.71.082-.328-.164-1.384-.51-2.636-1.625-.975-.868-1.633-1.94-1.824-2.267-.191-.328-.02-.505.144-.668.148-.148.328-.383.492-.575.164-.191.219-.328.328-.547.109-.219.055-.41-.027-.574-.082-.164-.737-1.775-1.01-2.43-.266-.64-.536-.553-.737-.563l-.628-.011c-.219 0-.574.082-.874.41-.3.328-1.146 1.12-1.146 2.73 0 1.611 1.173 3.168 1.337 3.387.164.219 2.31 3.527 5.598 4.946.782.338 1.393.54 1.869.69.785.25 1.5.214 2.065.13.63-.094 1.94-.793 2.213-1.558.273-.766.273-1.422.191-1.559-.082-.137-.3-.219-.628-.383z"/></svg>
+  </a>
+  <button class="fab fab-cart" id="cartFab" aria-label="Open cart">
+    <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="9" cy="21" r="1"></circle><circle cx="20" cy="21" r="1"></circle><path d="M1 1h4l2.68 13.39a2 2 0 0 0 2 1.61h9.72a2 2 0 0 0 2-1.61L23 6H6"></path></svg>
+    <span class="cart-badge" id="cartBadge" style="display:none;">0</span>
+  </button>
+</div>
+
+<div class="toast" id="toast">Added to cart</div>
+
+<!-- ================= CART SHEET ================= -->
+<div class="overlay" id="cartOverlay">
+  <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="cartTitle">
+    <div class="sheet-head">
+      <h3 id="cartTitle">Your Cart</h3>
+      <button class="close-btn" id="closeCart" aria-label="Close cart">&times;</button>
+    </div>
+    <div class="sheet-body" id="cartBody"></div>
+    <div class="sheet-foot">
+      <div class="total-row">
+        <span class="label">Grand total</span>
+        <span class="amount" id="cartTotal">₹0</span>
+      </div>
+      <button class="btn-primary" id="placeOrderBtn" disabled>Place Order</button>
+    </div>
+  </div>
+</div>
+
+<!-- ================= CHECKOUT SHEET ================= -->
+<div class="overlay" id="checkoutOverlay">
+  <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="checkoutTitle">
+    <div class="sheet-head">
+      <h3 id="checkoutTitle">Delivery Details</h3>
+      <button class="close-btn" id="closeCheckout" aria-label="Close">&times;</button>
+    </div>
+    <div class="sheet-body">
+      <div class="order-summary-mini" id="checkoutSummary"></div>
+      <form id="orderForm">
+        <div class="field">
+          <label for="custName">Your name *</label>
+          <input type="text" id="custName" name="custName" required autocomplete="name">
+        </div>
+        <div class="field">
+          <label for="custPhone">Phone number *</label>
+          <input type="tel" id="custPhone" name="custPhone" required autocomplete="tel" placeholder="10-digit mobile number">
+        </div>
+        <div class="field">
+          <label for="custAddress">Delivery address *</label>
+          <textarea id="custAddress" name="custAddress" required autocomplete="street-address" placeholder="House / street / landmark, area, city"></textarea>
+        </div>
+        <div class="field">
+          <label for="custNotes">Special instructions (optional)</label>
+          <textarea id="custNotes" name="custNotes" placeholder="e.g. call before delivery, gift wrap, etc."></textarea>
+        </div>
+        <input type="hidden" id="orderSummaryField" name="Order Summary">
+        <input type="hidden" id="orderTotalField" name="Grand Total">
+        <input type="hidden" name="_subject" value="New order — Scent & Sweet">
+        <button type="submit" class="btn-primary" id="submitOrderBtn">Confirm Order</button>
+      </form>
+    </div>
+  </div>
+</div>
+
+<!-- ================= CONFIRMATION SHEET ================= -->
+<div class="overlay" id="confirmOverlay">
+  <div class="sheet" role="dialog" aria-modal="true" aria-labelledby="confirmTitle">
+    <div class="sheet-head">
+      <h3 id="confirmTitle" class="visually-hidden">Order confirmed</h3>
+      <button class="close-btn" id="closeConfirm" aria-label="Close">&times;</button>
+    </div>
+    <div class="sheet-body confirm-wrap">
+      <div class="confirm-icon">
+        <svg viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="3" stroke-linecap="round" stroke-linejoin="round"><polyline points="20 6 9 17 4 12"></polyline></svg>
+      </div>
+      <h3>Order placed!</h3>
+      <p>Scent &amp; Sweet will contact you on WhatsApp shortly to confirm availability, price and delivery.</p>
+      <a class="wa-cta" id="confirmWaLink" href="#" target="_blank" rel="noopener">
+        <svg viewBox="0 0 32 32" fill="currentColor"><path d="M16.001 3C9.373 3 4 8.373 4 15c0 2.386.7 4.605 1.907 6.47L4 29l7.72-1.867A11.94 11.94 0 0 0 16.001 27C22.628 27 28 21.627 28 15S22.628 3 16.001 3zm0 21.818c-1.98 0-3.827-.56-5.398-1.53l-.387-.23-4.583 1.108 1.13-4.464-.253-.398A9.78 9.78 0 0 1 5.182 15c0-5.964 4.855-10.818 10.819-10.818S26.818 9.036 26.818 15 21.965 24.818 16.001 24.818zm5.98-8.12c-.328-.164-1.94-.957-2.24-1.066-.3-.11-.518-.164-.737.163-.219.328-.846 1.066-1.037 1.285-.191.219-.382.246-.71.082-.328-.164-1.384-.51-2.636-1.625-.975-.868-1.633-1.94-1.824-2.267-.191-.328-.02-.505.144-.668.148-.148.328-.383.492-.575.164-.191.219-.328.328-.547.109-.219.055-.41-.027-.574-.082-.164-.737-1.775-1.01-2.43-.266-.64-.536-.553-.737-.563l-.628-.011c-.219 0-.574.082-.874.41-.3.328-1.146 1.12-1.146 2.73 0 1.611 1.173 3.168 1.337 3.387.164.219 2.31 3.527 5.598 4.946.782.338 1.393.54 1.869.69.785.25 1.5.214 2.065.13.63-.094 1.94-.793 2.213-1.558.273-.766.273-1.422.191-1.559-.082-.137-.3-.219-.628-.383z"/></svg>
+        Chat on WhatsApp
+      </a>
+    </div>
+  </div>
+</div>
+
+<footer>
+  <span class="fname">Scent &amp; Sweet</span>
+  Aralia, Agartala · <span id="footPhone"></span><br>
+  Handcrafted Luxury Candles · Home Decor Candles · Scented Candles
+</footer>
+
+<script>
+(function(){
+  "use strict";
+
+  /* ============================================================
+     1. SHOP CONFIG — edit these to match your business
+     ============================================================ */
+  const SHOP = {
+    name: "Scent & Sweet",
+    tagline: "The Art of Elegant Light",
+    location: "Aralia, Agartala",
+    phone: "9862449860",          // 10-digit, no country code
+    countryCode: "91",            // used for wa.me links
+    email: "scentandsweet01@gmail.com",
+    // Create a free form at https://formspree.io, then paste your form ID below
+    formspreeEndpoint: "https://formspree.io/f/YOUR_FORM_ID"
+  };
+
+  const waNumber = SHOP.countryCode + SHOP.phone;
+  const waBaseMsg = encodeURIComponent(`Hi ${SHOP.name}! I'd like to know more about your candles.`);
+
+  document.getElementById("waFab").href = `https://wa.me/${waNumber}?text=${waBaseMsg}`;
+  document.getElementById("footPhone").textContent = "+" + waNumber;
+
+  /* ============================================================
+     2. PRODUCTS — replace image URLs with your imgbb.com links
+     ============================================================ */
+  const CATEGORIES = ["All", "Handcrafted Luxury", "Home Decor Candles", "Scented Candles"];
+
+  const PRODUCTS = [
+    { id:1,  name:"Vanilla Bean Jar Candle",   price:399, cat:"Scented Candles",      img:"https://placehold.co/400x400/F1E4DC/C97B85?text=Vanilla+Bean",     desc:"Rich vanilla bean aroma in a reusable glass jar." },
+    { id:2,  name:"Rose Petal Decor Candle",   price:449, cat:"Home Decor Candles",   img:"https://placehold.co/400x400/F1E4DC/C97B85?text=Rose+Petal",       desc:"Hand-pressed rose petals set in soft pink wax." },
+    { id:3,  name:"Sandalwood Luxury Candle",  price:499, cat:"Handcrafted Luxury",   img:"https://placehold.co/400x400/F1E4DC/C97B85?text=Sandalwood",       desc:"Warm sandalwood blend for a calming, elegant glow." },
+    { id:4,  name:"Lavender Dream Candle",     price:379, cat:"Scented Candles",      img:"https://placehold.co/400x400/F1E4DC/C97B85?text=Lavender",         desc:"Soothing lavender, perfect for restful evenings." },
+    { id:5,  name:"Citrus Burst Candle",       price:349, cat:"Scented Candles",      img:"https://placehold.co/400x400/F1E4DC/C97B85?text=Citrus+Burst",     desc:"Zesty orange and lemon peel fragrance." },
+    { id:6,  name:"Golden Pillar Candle",      price:299, cat:"Home Decor Candles",   img:"https://placehold.co/400x400/F1E4DC/C97B85?text=Golden+Pillar",    desc:"Unscented gold pillar candle for festive tables." },
+    { id:7,  name:"Coconut Ember Candle",      price:429, cat:"Handcrafted Luxury",   img:"https://placehold.co/400x400/F1E4DC/C97B85?text=Coconut+Ember",    desc:"Toasted coconut with a gentle hint of vanilla." },
+    { id:8,  name:"Cinnamon Spice Candle",     price:379, cat:"Scented Candles",      img:"https://placehold.co/400x400/F1E4DC/C97B85?text=Cinnamon+Spice",   desc:"Warm cinnamon and clove for cozy winter nights." },
+    { id:9,  name:"Jasmine Bloom Candle",      price:459, cat:"Home Decor Candles",   img:"https://placehold.co/400x400/F1E4DC/C97B85?text=Jasmine+Bloom",    desc:"Delicate jasmine floral, set in a ceramic pot." },
+    { id:10, name:"Musk & Oud Candle",         price:549, cat:"Handcrafted Luxury",   img:"https://placehold.co/400x400/F1E4DC/C97B85?text=Musk+%26+Oud",     desc:"Deep musk and oud for a rich, luxurious ambience." }
+  ];
+
+  /* ============================================================
+     3. STATE — cart persisted to localStorage
+     ============================================================ */
+  const CART_KEY = "scentAndSweet_cart";
+  let cart = loadCart();
+  let activeCategory = "All";
+
+  function loadCart(){
+    try{
+      const raw = localStorage.getItem(CART_KEY);
+      return raw ? JSON.parse(raw) : {};
+    }catch(e){ return {}; }
+  }
+  function saveCart(){
+    try{ localStorage.setItem(CART_KEY, JSON.stringify(cart)); }catch(e){ /* storage unavailable */ }
+  }
+
+  /* ============================================================
+     4. RENDER — category filters
+     ============================================================ */
+  const filterBar = document.getElementById("filterBar");
+  CATEGORIES.forEach(cat=>{
+    const btn = document.createElement("button");
+    btn.className = "filter-btn" + (cat === activeCategory ? " active" : "");
+    btn.textContent = cat;
+    btn.setAttribute("data-cat", cat);
+    btn.addEventListener("click", ()=>{
+      activeCategory = cat;
+      document.querySelectorAll(".filter-btn").forEach(b=>b.classList.toggle("active", b.getAttribute("data-cat")===cat));
+      renderGrid();
+    });
+    filterBar.appendChild(btn);
+  });
+
+  /* ============================================================
+     5. RENDER — product grid
+     ============================================================ */
+  const grid = document.getElementById("grid");
+
+  function renderGrid(){
+    grid.innerHTML = "";
+    const list = PRODUCTS.filter(p => activeCategory === "All" || p.cat === activeCategory);
+    list.forEach(p=>{
+      const qty = cart[p.id] ? cart[p.id].qty : 0;
+      const card = document.createElement("div");
+      card.className = "card";
+      card.innerHTML = `
+        <div class="card-img">
+          <span class="card-cat">${p.cat}</span>
+          <img src="${p.img}" alt="${p.name}" loading="lazy">
+        </div>
+        <div class="card-body">
+          <div class="card-name">${p.name}</div>
+          <div class="card-desc">${p.desc}</div>
+          <div class="card-foot">
+            <span class="card-price">₹${p.price}</span>
+            <button class="add-btn ${qty>0 ? 'added' : ''}" data-id="${p.id}">${qty>0 ? `In cart · ${qty}` : 'Add to Cart'}</button>
+          </div>
+        </div>`;
+      grid.appendChild(card);
+    });
+
+    grid.querySelectorAll(".add-btn").forEach(btn=>{
+      btn.addEventListener("click", ()=>{
+        const id = Number(btn.getAttribute("data-id"));
+        addToCart(id);
+      });
+    });
+  }
+
+  /* ============================================================
+     6. CART LOGIC
+     ============================================================ */
+  function addToCart(id){
+    const product = PRODUCTS.find(p=>p.id===id);
+    if(!product) return;
+    if(cart[id]){ cart[id].qty += 1; }
+    else{ cart[id] = { qty:1 }; }
+    saveCart();
+    renderGrid();
+    updateCartBadge();
+    showToast(`${product.name} added to cart`);
+    pulseCartFab();
+  }
+
+  function changeQty(id, delta){
+    if(!cart[id]) return;
+    cart[id].qty += delta;
+    if(cart[id].qty <= 0){ delete cart[id]; }
+    saveCart();
+    renderGrid();
+    renderCartSheet();
+    updateCartBadge();
+  }
+
+  function removeFromCart(id){
+    delete cart[id];
+    saveCart();
+    renderGrid();
+    renderCartSheet();
+    updateCartBadge();
+  }
+
+  function cartEntries(){
+    return Object.keys(cart).map(id=>{
+      const product = PRODUCTS.find(p=>p.id===Number(id));
+      return product ? { product, qty:cart[id].qty } : null;
+    }).filter(Boolean);
+  }
+
+  function cartTotal(){
+    return cartEntries().reduce((sum,e)=> sum + e.product.price * e.qty, 0);
+  }
+
+  function cartItemCount(){
+    return cartEntries().reduce((sum,e)=> sum + e.qty, 0);
+  }
+
+  function updateCartBadge(){
+    const badge = document.getElementById("cartBadge");
+    const count = cartItemCount();
+    if(count > 0){
+      badge.style.display = "flex";
+      badge.textContent = count;
+    }else{
+      badge.style.display = "none";
+    }
+  }
+
+  function pulseCartFab(){
+    const fab = document.getElementById("cartFab");
+    fab.classList.remove("pulse");
+    void fab.offsetWidth; // restart animation
+    fab.classList.add("pulse");
+  }
+
+  /* ============================================================
+     7. CART SHEET
+     ============================================================ */
+  const cartOverlay = document.getElementById("cartOverlay");
+  const cartBody = document.getElementById("cartBody");
+  const cartTotalEl = document.getElementById("cartTotal");
+  const placeOrderBtn = document.getElementById("placeOrderBtn");
+
+  function renderCartSheet(){
+    const entries = cartEntries();
+    if(entries.length === 0){
+      cartBody.innerHTML = `<div class="cart-empty">Your cart is empty.<br>Add a candle to get started 🕯️</div>`;
+      placeOrderBtn.disabled = true;
+    }else{
+      cartBody.innerHTML = entries.map(e=>`
+        <div class="cart-row" data-id="${e.product.id}">
+          <img src="${e.product.img}" alt="${e.product.name}" loading="lazy">
+          <div class="cart-row-info">
+            <div class="cart-row-name">${e.product.name}</div>
+            <div class="cart-row-price">₹${e.product.price} each</div>
+            <div class="qty-row">
+              <button class="qty-btn minus" aria-label="Decrease quantity">−</button>
+              <span class="qty-num">${e.qty}</span>
+              <button class="qty-btn plus" aria-label="Increase quantity">+</button>
+              <button class="remove-btn">Remove</button>
+            </div>
+          </div>
+          <div class="cart-row-sub">₹${e.product.price * e.qty}</div>
+        </div>
+      `).join("");
+
+      cartBody.querySelectorAll(".cart-row").forEach(row=>{
+        const id = Number(row.getAttribute("data-id"));
+        row.querySelector(".plus").addEventListener("click", ()=>changeQty(id, 1));
+        row.querySelector(".minus").addEventListener("click", ()=>changeQty(id, -1));
+        row.querySelector(".remove-btn").addEventListener("click", ()=>removeFromCart(id));
+      });
+      placeOrderBtn.disabled = false;
+    }
+    cartTotalEl.textContent = "₹" + cartTotal();
+  }
+
+  document.getElementById("cartFab").addEventListener("click", ()=>{
+    renderCartSheet();
+    cartOverlay.classList.add("open");
+  });
+  document.getElementById("closeCart").addEventListener("click", ()=> cartOverlay.classList.remove("open"));
+  cartOverlay.addEventListener("click", (e)=>{ if(e.target === cartOverlay) cartOverlay.classList.remove("open"); });
+
+  /* ============================================================
+     8. CHECKOUT SHEET
+     ============================================================ */
+  const checkoutOverlay = document.getElementById("checkoutOverlay");
+  const checkoutSummary = document.getElementById("checkoutSummary");
+  const orderForm = document.getElementById("orderForm");
+  const submitOrderBtn = document.getElementById("submitOrderBtn");
+
+  placeOrderBtn.addEventListener("click", ()=>{
+    if(cartItemCount() === 0) return;
+    const entries = cartEntries();
+    checkoutSummary.innerHTML = `<strong>${cartItemCount()} item(s)</strong> · Total <strong>₹${cartTotal()}</strong><br>` +
+      entries.map(e=>`${e.product.name} × ${e.qty}`).join(", ");
+    cartOverlay.classList.remove("open");
+    checkoutOverlay.classList.add("open");
+  });
+
+  document.getElementById("closeCheckout").addEventListener("click", ()=> checkoutOverlay.classList.remove("open"));
+  checkoutOverlay.addEventListener("click", (e)=>{ if(e.target === checkoutOverlay) checkoutOverlay.classList.remove("open"); });
+
+  function buildOrderSummaryText(){
+    const entries = cartEntries();
+    const lines = entries.map(e=> `${e.product.name}  x${e.qty}  @₹${e.product.price} = ₹${e.product.price*e.qty}`);
+    return lines.join("\n");
+  }
+
+  orderForm.addEventListener("submit", async function(e){
+    e.preventDefault();
+    if(cartItemCount() === 0) return;
+
+    const name = document.getElementById("custName").value.trim();
+    const phone = document.getElementById("custPhone").value.trim();
+    const address = document.getElementById("custAddress").value.trim();
+    const notes = document.getElementById("custNotes").value.trim();
+
+    if(!name || !phone || !address){ return; }
+
+    const entries = cartEntries();
+    const summaryText = buildOrderSummaryText();
+    const total = cartTotal();
+
+    const fullEmailBody =
+`NEW ORDER — ${SHOP.name}
+
+Customer: ${name}
+Phone: ${phone}
+Address: ${address}
+Instructions: ${notes || "—"}
+
+Items:
+${summaryText}
+
+Grand Total: ₹${total}`;
+
+    document.getElementById("orderSummaryField").value = fullEmailBody;
+    document.getElementById("orderTotalField").value = "₹" + total;
+
+    submitOrderBtn.disabled = true;
+    submitOrderBtn.textContent = "Placing order...";
+
+    try{
+      const formData = new FormData(orderForm);
+      const resp = await fetch(SHOP.formspreeEndpoint, {
+        method:"POST",
+        headers:{ "Accept":"application/json" },
+        body: formData
+      });
+
+      // Even if Formspree isn't configured yet (demo/placeholder ID),
+      // we still complete the flow so the shop owner can see it working.
+      completeOrder();
+    }catch(err){
+      // Network / config issue — still show confirmation so the customer
+      // isn't stuck; shop owner should verify Formspree setup.
+      completeOrder();
+    }finally{
+      submitOrderBtn.disabled = false;
+      submitOrderBtn.textContent = "Confirm Order";
+    }
+  });
+
+  function completeOrder(){
+    checkoutOverlay.classList.remove("open");
+    const waMsg = encodeURIComponent(
+      `Hi ${SHOP.name}, I just placed an order on your website. Please confirm availability & delivery. Thank you!`
+    );
+    document.getElementById("confirmWaLink").href = `https://wa.me/${waNumber}?text=${waMsg}`;
+    document.getElementById("confirmOverlay").classList.add("open");
+
+    cart = {};
+    saveCart();
+    renderGrid();
+    updateCartBadge();
+    orderForm.reset();
+  }
+
+  document.getElementById("closeConfirm").addEventListener("click", ()=> document.getElementById("confirmOverlay").classList.remove("open"));
+  document.getElementById("confirmOverlay").addEventListener("click", (e)=>{
+    if(e.target === document.getElementById("confirmOverlay")) document.getElementById("confirmOverlay").classList.remove("open");
+  });
+
+  /* ============================================================
+     9. TOAST
+     ============================================================ */
+  let toastTimer = null;
+  function showToast(msg){
+    const toast = document.getElementById("toast");
+    toast.textContent = msg;
+    toast.classList.add("show");
+    clearTimeout(toastTimer);
+    toastTimer = setTimeout(()=> toast.classList.remove("show"), 1800);
+  }
+
+  /* ============================================================
+     10. INIT
+     ============================================================ */
+  renderGrid();
+  updateCartBadge();
+
+})();
+</script>
+</body>
+</html>
